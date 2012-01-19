@@ -17,4 +17,6 @@ This plugin prevent people from registering with a disposable email addresses li
 
 1. Unpack the *.zip file and extract the /bdea/ folder and the files.
 2. Using an FTP program, upload the full /bdea/ folder to your WordPress plugins directory (Example: /wp-content/plugins).
-3. Go to Plugins > Installed and activate the plugin.
+3. Register at www.block-disposable-email.com and pick your api key.
+4. Go to Plugins, click Settings and insert your api key.
+5. Go to Plugins and activate the plugin.
