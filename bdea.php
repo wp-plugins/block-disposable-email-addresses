@@ -4,7 +4,7 @@
 	Plugin URI: http://wordpress.org/extend/plugins/block-disposable-email-addresses/ 
 	Description: This plugin protects your registered user base by preventing registration with a disposable email addresse (like mailinator). 
 	Author: Gerold Setz 
-	Version: 0.2
+	Version: 0.3
 	Author URI: http://www.block-disposable-email.com/
 	Text Domain: bdea 
 	Domain Path: /bdea
@@ -30,8 +30,36 @@ function block_dea_menu() {
 
 function plugin_section_text() {
         echo '<p>This plugin requires an api key. You can get one at <a href="http://www.block-disposable-email.com/" target="_bdea">www.block-disposable-email.com</a>.</p>';
-}
+	}
 
+function plugin_section_status() {
+	/// Status abfragen
+        $key = get_option('bdea_plugin_options');
+        $request = 'http://www.block-disposable-email.com/status/?apikey='.$key['bdea_api_key'];
+
+	if (!$key['bdea_api_key'])
+		{
+		echo 'No API key entered so far. Please get one and insert it here.';
+		}
+	else
+		{
+        	if ($response = @file_get_contents($request))
+			{
+        		$status = json_decode($response);
+//print_r($status);
+        		if ($status->request_status == 'ok' && $status->apikeystatus== 'active') 
+				{
+				echo 'Everything fine! The API key you entered is valid. <p>Currently (as of '.$status->credits_time.') there are '.$status->credits.' credits. Especially when you use a pretty new generated api key the number might be wrong. Simply come back in about 30 minutes and check again.</p>';
+				if ($status->credits <=0) echo '<p><b>Warning:</b> All your credits are used up so far! The service will now always respond with an OK message that means that disposable email addresses are not recognized until you add credits. Free credits will be added on the 1st of every month. Please consider to buy commercial credits. For further information see <a href="http://www.block-disposable-email.com/pricing.php" target="_bdea">block-disposable-email.com</a></p>';
+				}
+			else
+				{
+				echo 'Something is wrong with your api key. The server responded with '.$status->apikeystatus.'.';
+				}
+			}
+		else echo 'No response from server. Please try later.';
+		}
+}
 
 function plugin_setting_string() {
         $options = get_option('bdea_plugin_options');
@@ -41,6 +69,7 @@ function plugin_setting_string() {
 
 function register_bdea_settings() {
         register_setting( 'bdea_plugin_options', 'bdea_plugin_options');
+        add_settings_section('plugin_status', 'Status of your API key', 'plugin_section_status', 'plugin');
         add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'plugin');
         add_settings_field('plugin_text_string', 'BDEA Api key', 'plugin_setting_string', 'plugin', 'plugin_main');
 }
