@@ -4,7 +4,7 @@
 	Plugin URI: http://wordpress.org/extend/plugins/block-disposable-email-addresses/ 
 	Description: This plugin protects your registered user base by preventing registration with a disposable email addresse (like mailinator). 
 	Author: Gerold Setz 
-	Version: 0.3
+	Version: 0.4
 	Author URI: http://www.block-disposable-email.com/
 	Text Domain: bdea 
 	Domain Path: /bdea
@@ -29,13 +29,14 @@ function block_dea_menu() {
 }
 
 function plugin_section_text() {
-        echo '<p>This plugin requires an api key. You can get one at <a href="http://www.block-disposable-email.com/" target="_bdea">www.block-disposable-email.com</a>.</p>';
+        echo '<p>This plugin requires an api key. You can get one at <a href="http://www.block-disposable-email.com/register_new.php" target="_bdea">www.block-disposable-email.com</a>.</p>';
+	echo '<p>When subscribing for an api key you will also be asked for your servers ip address: it seems to be <i>'.$_SERVER['SERVER_ADDR'].'</i>.</p>';
 	}
 
 function plugin_section_status() {
 	/// Status abfragen
         $key = get_option('bdea_plugin_options');
-        $request = 'http://www.block-disposable-email.com/status/?apikey='.$key['bdea_api_key'];
+        $request = 'http://status.block-disposable-email.com/status/?apikey='.$key['bdea_api_key'];
 
 	if (!$key['bdea_api_key'])
 		{
