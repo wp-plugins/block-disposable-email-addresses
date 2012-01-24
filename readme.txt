@@ -1,16 +1,18 @@
 === Block Disposable Email ===
 Contributors: gsetz 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZVJSLJALXCKYQ 
-Tags: comments, posts, spam, disposable email, temporary email, anti-spam, spam, mailinator, authentication, disposable, email, guerrillamail,mailinator, register, registration, fraud 
+Tags: comments, posts, spam, disposable email, temporary email, validation, anti-spam, spam, mailinator, authentication, disposable, email, guerrillamail,mailinator, register, registration, fraud 
 Requires at least: 3.3.1
 Tested up to: 3.3.1
 Stable tag: trunk
 
-This plugin protects your registered user base by preventing registration with a disposable email address (like mailinator).
+This plugin detects one-time email addresses (disposable email, trashmail, mailinator) and helps to keep your userbase and comments clean.
 
 == Description ==
 
-This plugin prevent people from registering with a disposable email addresses like the ones provided by mailinator. It protects your most important asset, your registered user base, by preventing contamination by fake accounts. This plugin working principle is similar to spam blacklists.
+This plugin prevent people from registering with a disposable email addresses (dea) like the ones provided by mailinator. It protects your most important asset, your registered user base, by preventing contamination by fake accounts. This plugin working principle is similar to spam blacklists.
+
+It hooks in the wordpress function is_email() so it will extend the known email validation of wordpress to detect dea domains. 
 
 The plugin itself does not contain a list of domains to block. Instead of local maintenance the plugin uses the service of http://www.block-disposable-email.com. This is a very accurate free service for up to 200 queries a month. For huge sites several commercial plans are available.
 
