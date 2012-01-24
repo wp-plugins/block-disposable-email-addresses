@@ -4,7 +4,7 @@
 	Plugin URI: http://wordpress.org/extend/plugins/block-disposable-email-addresses/ 
 	Description: This plugin protects your registered user base by preventing registration with a disposable email addresse (like mailinator). 
 	Author: Gerold Setz 
-	Version: 0.4
+	Version: 0.5
 	Author URI: http://www.block-disposable-email.com/
 	Text Domain: bdea 
 	Domain Path: /bdea
@@ -55,7 +55,7 @@ function plugin_section_status() {
 				}
 			else
 				{
-				echo 'Something is wrong with your api key. The server responded with '.$status->apikeystatus.'.';
+				echo '<div id="message" class="error">Something is wrong with your api key. The server responded with '.$status->apikeystatus.'.</div>';
 				}
 			}
 		else echo 'No response from server. Please try later.';
@@ -144,5 +144,34 @@ function bdea_check ($email){
 		}
 	else return true;
 }
+
+// Message after activation
+
+/**
+ * Generic function to show a message to the user using WP's
+ * standard CSS classes to make use of the already-defined
+ * message colour scheme.
+ *
+ * @param $message The message you want to tell the user.
+ * @param $errormsg If true, the message is an error, so use
+ * the red message style. If false, the message is a status
+  * message, so use the yellow information message style.
+ */
+function showActivationMessage($message, $errormsg = true)
+{
+	if ($errormsg) {
+		echo '<div id="message" class="error">';
+	}
+	else {
+		echo '<div id="message" class="updated fade">';
+	}
+	
+	$message = '<h3>Warning from the Block Disposable E-Mail Plugin </h3><p>Please insert a valid api key!</p><p>The plugin will not work correctly otherwise ...</p><p>You can get one at <a href="http://www.block-disposable-email.com/register_new.php" target="_bdea">www.block-disposable-email.com</a>.</p>';
+	echo "<p><strong>$message</strong></p></div>";
+}    
+
+$key = get_option('bdea_plugin_options');
+if (!$key['bdea_api_key']) add_action('admin_notices', 'showActivationMessage');
+
 
 ?>

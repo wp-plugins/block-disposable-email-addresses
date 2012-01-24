@@ -20,8 +20,8 @@ Please see the FAQ section for some more information.
 
 == Installation ==
 
-1. Unpack the *.zip file and extract the /bdea/ folder and the files.
-2. Using an FTP program, upload the full /bdea/ folder to your WordPress plugins directory (Example: /wp-content/plugins).
+1. Unpack the *.zip file and extract the /block-disposable-email-addresses/ folder and the files.
+2. Using an FTP program, upload the full /block-disposable-email-addresses/ folder to your WordPress plugins directory (Example: /wp-content/plugins).
 3. Register at www.block-disposable-email.com and pick your api key. Please note that you have to register your server with its ip address to get a key. Simply follow the guideline of the service.
 4. Go to Plugins, click Settings and insert your api key.
 5. Go to Plugins and activate the plugin.
@@ -61,6 +61,9 @@ This should be happen very rarely. In this case I kindly ask you to report this 
 Sure. Have a look at http://www.block-disposable-email.com/usage.php. There are several documents for the json, txt and php-serialized api.
 
 == Changelog ==
+
+= 0.5 =
+* Added a huge warning message in case no api key has been inserted after activation. Should make clear that the plugin does not work without the free registration.
 
 = 0.4 =
 * Changed host for status messages from www. to status.block-disposable-email.com
