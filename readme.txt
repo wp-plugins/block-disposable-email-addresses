@@ -10,7 +10,7 @@ This plugin detects one-time email addresses (disposable email, trashmail, maili
 
 == Description ==
 
-This plugin prevent people from registering with a disposable email addresses (dea) like the ones provided by mailinator. It protects your most important asset, your registered user base, by preventing contamination by fake accounts. This plugin working principle is similar to spam blacklists.
+This plugin prevent people from registering with disposable email addresses (dea) like the ones provided by mailinator (also known as throw-away email, one-time email). It protects your most important asset, your registered user base, by preventing contamination by fake accounts. This plugin working principle is similar to spam blacklists.
 
 It hooks in the wordpress function is_email() so it will extend the known email validation of wordpress to detect dea domains. 
 
