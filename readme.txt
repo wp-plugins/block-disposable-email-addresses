@@ -3,7 +3,7 @@ Contributors: gsetz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZVJSLJALXCKYQ 
 Tags: comments, posts, spam, disposable email, temporary email, validation, anti-spam, spam, mailinator, authentication, disposable, email, guerrillamail,mailinator, register, registration, fraud 
 Requires at least: 3.3.1
-Tested up to: 3.3.1
+Tested up to: 4.2
 Stable tag: trunk
 
 This plugin detects one-time email addresses (disposable email, trashmail, mailinator, 10minutemail) and helps to keep your userbase and comments clean. Free registration at www.block-disposable-email.com needed.
