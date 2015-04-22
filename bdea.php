@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Block Disposable EMail 
 	Plugin URI: http://wordpress.org/extend/plugins/block-disposable-email-addresses/ 
-	Description: This plugin protects your registered user base by preventing registration with a disposable email addresse (like mailinator). 
+	Description: This plugin protects your registered user base by preventing registration with a disposable email addresses (like mailinator, 10minutemail). It will stay up-to-date by using block-disposable-email.com api.
 	Author: Gerold Setz 
 	Version: 0.6
 	Author URI: http://www.block-disposable-email.com/
