@@ -4,7 +4,7 @@
 	Plugin URI: http://wordpress.org/extend/plugins/block-disposable-email-addresses/ 
 	Description: This plugin protects your registered user base by preventing registration with a disposable email addresse (like mailinator). 
 	Author: Gerold Setz 
-	Version: 0.5
+	Version: 0.6
 	Author URI: http://www.block-disposable-email.com/
 	Text Domain: bdea 
 	Domain Path: /bdea
@@ -29,7 +29,7 @@ function block_dea_menu() {
 }
 
 function plugin_section_text() {
-        echo '<p>This plugin requires an api key. You can get one at <a href="http://www.block-disposable-email.com/register_new.php" target="_bdea">www.block-disposable-email.com</a>.</p>';
+        echo '<p>This plugin requires an api key. You can get one at <a href="http://www.block-disposable-email.com/cms/register/" target="_bdea">www.block-disposable-email.com</a>.</p>';
 	echo '<p>When subscribing for an api key you will also be asked for your servers ip address: it seems to be <i>'.$_SERVER['SERVER_ADDR'].'</i>.</p>';
 	}
 
@@ -118,7 +118,7 @@ function bdea_check ($email){
         list(, $domain) = explode('@', $email);
 
         $key = get_option('bdea_plugin_options');
-        $request = 'http://check.block-disposable-email.com/api/json/'.$key['bdea_api_key'].'/'.trim($domain);
+        $request = 'http://check.block-disposable-email.com/easyapi/json/'.$key['bdea_api_key'].'/'.trim($domain);
 
 	//echo $request;
 
@@ -166,7 +166,7 @@ function showActivationMessage($message, $errormsg = true)
 		echo '<div id="message" class="updated fade">';
 	}
 	
-	$message = '<h3>Warning from the Block Disposable E-Mail Plugin </h3><p>Please insert a valid api key!</p><p>The plugin will not work correctly otherwise ...</p><p>You can get one at <a href="http://www.block-disposable-email.com/register_new.php" target="_bdea">www.block-disposable-email.com</a>.</p>';
+	$message = '<h3>Warning from the Block Disposable E-Mail Plugin </h3><p>Please insert a valid api key!</p><p>The plugin will not work correctly otherwise ...</p><p>You can get one at <a href="http://www.block-disposable-email.com/cms/register/" target="_bdea">www.block-disposable-email.com</a>.</p>';
 	echo "<p><strong>$message</strong></p></div>";
 }    
 

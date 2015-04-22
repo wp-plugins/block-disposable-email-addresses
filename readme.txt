@@ -6,11 +6,11 @@ Requires at least: 3.3.1
 Tested up to: 3.3.1
 Stable tag: trunk
 
-This plugin detects one-time email addresses (disposable email, trashmail, mailinator) and helps to keep your userbase and comments clean.
+This plugin detects one-time email addresses (disposable email, trashmail, mailinator, 10minutemail) and helps to keep your userbase and comments clean. Free registration at www.block-disposable-email.com needed.
 
 == Description ==
 
-This plugin prevent people from registering with disposable email addresses (dea) like the ones provided by mailinator (also known as throw-away email, one-time email). It protects your most important asset, your registered user base, by preventing contamination by fake accounts. This plugin working principle is similar to spam blacklists.
+This plugin prevents people from registering with disposable email addresses (dea) like the ones provided by mailinator (also known as throw-away email, one-time email). It protects your most important asset, your registered user base, by preventing contamination by fake accounts. This plugin working principle is similar to spam blacklists.
 
 It hooks in the wordpress function is_email() so it will extend the known email validation of wordpress to detect dea domains. 
 
@@ -61,6 +61,10 @@ This should be happen very rarely. In this case I kindly ask you to report this 
 Sure. Have a look at http://www.block-disposable-email.com/usage.php. There are several documents for the json, txt and php-serialized api.
 
 == Changelog ==
+
+= 0.5 =
+* Added support for Wordpress 4.1.2
+* Changed used api to easyapi (see http://www.block-disposable-email.com/cms/help-and-usage/easy-api/)
 
 = 0.5 =
 * Added a huge warning message in case no api key has been inserted after activation. Should make clear that the plugin does not work without the free registration.
